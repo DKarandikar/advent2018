@@ -1,9 +1,15 @@
 module Main where
 
-import Day1 (part1, part2)
+import Day1 (d1_1, d1_2)
 
 main :: IO ()
 main = do
-    contents <- readFile "src/input_files/day1"
-    putStrLn $ part1 contents
-    putStrLn $ part2 contents
+    day <- getLine  
+    case day of 
+        "1-1" -> do
+            contents <- readFile "src/input_files/day1"
+            return putStrLn putStrLn $ d1_1 contents
+        "1-2" -> do
+            contents <- readFile "src/input_files/day1"
+            return putStrLn putStrLn $ d1_2 contents
+        _  -> error $ "Invalid day: " ++ day

@@ -1,7 +1,7 @@
-module Day1 (part1, part2) where 
+module Day1 (d1_1, d1_2) where 
 
-part1:: String -> String
-part1 i = show $ foldl sumLine 0 $ lines i
+d1_1:: String -> String
+d1_1 i = show $ foldl sumLine 0 $ lines i
 
 sumLine:: Int -> String -> Int
 sumLine num line = num + handleLine line
@@ -17,8 +17,8 @@ handleLine (c:cs)
 -- part2 i = show $ iterate (accumulateLines (lines i)) [0] !! 100000
 -- part2 i = show $ accumulateLines (lines i) [0]
 
-part2:: String -> String
-part2 i = show $ head $ until listStartInList (accumulateLines $ lines i) [0]
+d1_2:: String -> String
+d1_2 i = show $ head $ until listStartInList (accumulateLines $ lines i) [0]
 
 listStartInList :: [Int] -> Bool
 listStartInList (c:cs) = elem c cs
