@@ -22,5 +22,5 @@ hammingDistance = (sum .) . zipWith ((fromEnum .) . (/=))
 
 d2_2:: String -> String
 d2_2 i = case List.find (\(x,y) -> hammingDistance x y == 1) [(x,y) | x <- lines i, y <- lines i] of
-    Just (x, y) -> show $ filter (\a -> elem a x) y
+    Just (x, y) -> filter (\a -> elem a x) y
     Nothing -> "No result"
