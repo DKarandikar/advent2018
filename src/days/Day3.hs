@@ -3,7 +3,7 @@ module Day3 (d3_1, d3_2, handleLine) where
 import qualified Data.Map as Map
 
 d3_1:: String -> String
-d3_1 i = i
+d3_1 i = show $ Map.size $ Map.filter (>=2) (Map.fromListWith (+) [(x, 1) | x <- concat $ map handleLine (lines i)])
 
 handleLine:: String -> [(Int, Int)]
 handleLine s = 
