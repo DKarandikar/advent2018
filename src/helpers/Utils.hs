@@ -21,3 +21,7 @@ consume' soFar c s = let (x:xs) = s in if x == c then soFar else consume' (soFar
 
 flipCase:: Char -> Char
 flipCase c = if isUpper c then toLower c else toUpper c
+
+removeChar:: Char -> String -> String
+removeChar c [] = []
+removeChar c (x : xs) = if (toLower x) == (toLower c) then removeChar c xs   else x : (removeChar c xs)

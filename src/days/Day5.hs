@@ -1,6 +1,6 @@
 module Day5 where 
 
-import Utils(flipCase)
+import Utils(flipCase, removeChar)
 
 
 d5_1:: String -> String
@@ -20,4 +20,5 @@ do_d5_1 s (c:c':cs)
     | otherwise = do_d5_1 (s ++ [c]) (c':cs)
 
 d5_2:: String -> String
-d5_2 i = i
+d5_2 i = show $ minimum $ map get_reacted_polymer_length [removeChar x i | x <- "abcdefghijklmnopqrstuvwxyz"]
+
