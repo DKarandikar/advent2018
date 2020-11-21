@@ -1,5 +1,7 @@
 module Utils where
 
+import Data.Char
+
 sort :: (a -> a -> Bool) -> [a] -> [a]
 sort _ [] = []
 sort f (x:xs) =
@@ -17,26 +19,5 @@ consume c c' s = let (x:xs) = s in if x == c then consume' "" c' xs else consume
 consume' :: String -> Char -> String -> String
 consume' soFar c s = let (x:xs) = s in if x == c then soFar else consume' (soFar ++ [x]) c xs
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- references = length . consume
-
--- consume []       = []
--- consume ('[':xs) = let (v,rest) = consume' xs in v:consume rest
--- consume (_  :xs) = consume xs
-
--- consume' []       = ([], []) 
--- consume' (']':xs) = ([], xs)
--- consume' (x  :xs) = let (v,rest) = consume' xs in (x:v, rest)
+flipCase:: Char -> Char
+flipCase c = if isUpper c then toLower c else toUpper c
