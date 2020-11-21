@@ -3,6 +3,7 @@ module Main where
 import Day1 (d1_1, d1_2)
 import Day2 (d2_1, d2_2)
 import Day3 (d3_1, d3_2)
+import Day4 (d4_1, d4_2)
 import System.Environment
 
 
@@ -28,4 +29,10 @@ main = do
         "3-2" : [] -> do
             contents <- readFile "src/input_files/day3"
             return putStrLn putStrLn $ d3_2 contents
+        "4-1" : [] -> do
+            contents <- readFile "src/input_files/day4"
+            return putStrLn putStrLn $ d4_1 contents
+        "4-2" : [] -> do
+            contents <- readFile "src/input_files/day4"
+            return putStrLn putStrLn $ d4_2 contents
         _  -> error "Must be called with an argument of the form [1-25]-[1-2]"
