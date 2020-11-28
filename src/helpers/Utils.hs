@@ -25,3 +25,19 @@ flipCase c = if isUpper c then toLower c else toUpper c
 removeChar:: Char -> String -> String
 removeChar c [] = []
 removeChar c (x : xs) = if (toLower x) == (toLower c) then removeChar c xs   else x : (removeChar c xs)
+
+type Coord = (Int, Int)
+
+-- Given a list of coords, get top left and bottom right of all coords
+getBoundingBox:: [Coord] -> (Coord, Coord)
+getBoundingBox coords = 
+    let 
+        xs = [fst c | c <- coords]
+        ys = [snd c | c <- coords]
+    in
+        ((minimum xs, minimum ys), (maximum xs, maximum ys))
+
+manhattanDist:: Coord -> Coord -> Int
+manhattanDist c c' = abs (fst c - fst c') + abs (snd c - snd c')
+
+getBorder (Coord, Coord) -> [Coord]
